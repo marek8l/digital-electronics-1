@@ -39,4 +39,4 @@ end architecture dataflow;
 
 2. Link to your public EDA Playground example:
 
-   [https://www.edaplayground.com/...](https://www.edaplayground.com/...)
+  De Morgan's laws: [https://www.edaplayground.com/x/7y5j](https://www.edaplayground.comx/7y5j)
