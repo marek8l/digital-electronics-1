@@ -3,6 +3,9 @@
 ### De Morgan's laws
 
 1. Equations of all three versions of logic function f(c,b,a):
+f_ORIG (c,b,a)=b ̅∙a+c∙((b+a ̅)) ̅
+f_(N)AND (c,b,a)=((b ̅∙a) ̅∙(c∙b ̅∙a) ̅ ) ̅
+f_(N)OR (c,b,a)=(b+a ̅ ) ̅+(c ̅+(b+a ̅)) ̅
 
    ![Logic function](images/equations.png)
 
