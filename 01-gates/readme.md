@@ -3,11 +3,8 @@
 ### De Morgan's laws
 
 1. Equations of all three versions of logic function f(c,b,a):
-f_ORIG (c,b,a)=b ̅∙a+c∙((b+a ̅)) ̅
-f_(N)AND (c,b,a)=((b ̅∙a) ̅∙(c∙b ̅∙a) ̅ ) ̅
-f_(N)OR (c,b,a)=(b+a ̅ ) ̅+(c ̅+(b+a ̅)) ̅
 
-   ![Logic function](images/equations.png)
+   ![Logic function](images/![image](https://user-images.githubusercontent.com/124789112/217813008-cbad562e-676b-4ff6-ada4-9b9e5d8630ed.png))
 
 2. Listing of VHDL architecture from design file (`design.vhd`) for all three functions. Always use syntax highlighting, meaningful comments, and follow VHDL guidelines:
 
