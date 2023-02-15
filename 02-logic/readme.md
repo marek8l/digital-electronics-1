@@ -140,40 +140,6 @@ where possible values for `severity_level` are: `note`, `warning`, `error`, `fai
 
    ```vhdl
    report "Stimulus process started" severity note;
-   report "Stimulus process started";
-   ```
-
-An assertion statement checks that a specified condition is true and reports an error if it is not. It is combined with a report statement as follows:
-
-   ```vhdl
-   assert (<condition>)
-   report <message_string> [severity <severity_level>];
-   ```
-
-The message is displayed to the console when the condition is NOT met, therefore the message should be an opposite to the condition.
-
-   ```vhdl
-    --------------------------------------------------------------------
-    -- Data generation process
-    --------------------------------------------------------------------
-    p_stimulus : process
-    begin
-        -- Report a note at the beginning of stimulus process
-        report "Stimulus process started";
-
-        -- First test case ...
-        s_b <= "00"; s_a <= "00"; wait for 100 ns;
-        -- ... and its expected outputs
-        assert ((s_B_greater_A = '0') and
-                (s_B_equals_A  = '1') and
-                (s_B_less_A    = '0'))
-        -- If false, then report an error
-        -- If true, then do not report anything
-        report "Input combination 00, 00 FAILED" severity error;
-
-
-        -- WRITE OTHER TEST CASES HERE
-
 # Lab 2: INSERT_YOUR_FIRSTNAME INSERT_YOUR_LASTNAME
 
 ### 2-bit comparator
@@ -197,6 +163,33 @@ The message is displayed to the console when the condition is NOT met, therefore
 1. Listing of VHDL stimulus process from testbench file (`testbench.vhd`) with at least one assert (use BCD codes of your student ID digits as input combinations). Always use syntax highlighting, meaningful comments, and follow VHDL guidelines:
 
    Last two digits of my student ID: **xxxx??**
+
+```vhdl
+    p_stimulus : process
+    begin
+        -- Report a note at the beginning of stimulus process
+        report "Stimulus process started" severity note;
+
+        -- First test case
+        s_b <= "BCD_OF_YOUR_SECOND_LAST_ID_DIGIT"; -- Such as "0101" if ID = xxxx56
+        s_a <= "BCD_OF_YOUR_LAST_ID_DIGIT";        -- Such as "0110" if ID = xxxx56
+        wait for 100 ns;
+        -- Expected output
+        assert ((s_B_greater_A = 'WRITE_CORRECT_VALUE_HERE') and
+                (s_B_equals_A  = 'WRITE_CORRECT_VALUE_HERE') and
+                (s_B_less_A    = 'WRITE_CORRECT_VALUE_HERE'))
+        -- If false, then report an error
+        report "Input combination COMPLETE_THIS_TEXT FAILED" severity error;
+
+        -- Report a note at the end of stimulus process
+        report "Stimulus process finished" severity note;
+        wait;
+    end process p_stimulus;
+```
+
+2. Link to your public EDA Playground example:
+
+   [https://www.edaplayground.com/...](https://www.edaplayground.com/...)
 
 ```vhdl
     p_stimulus : process
