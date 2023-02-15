@@ -23,26 +23,69 @@
    Last two digits of my student ID: 30
 
 ```vhdl
-    p_stimulus : process
+      p_stimulus : process
     begin
         -- Report a note at the beginning of stimulus process
-        report "Stimulus process started";
+        report "Stimulus process started" severity note;
 
         -- First test case
-        s_b <= "BCD_OF_YOUR_SECOND_LAST_ID_DIGIT"; -- Such as "0101" if ID = xxxx56
-        s_a <= "BCD_OF_YOUR_LAST_ID_DIGIT";        -- Such as "0110" if ID = xxxx56
+        s_b <= "0011"; -- 3
+        s_a <= "0000"; -- 0
         wait for 100 ns;
         -- Expected output
-        assert ((s_B_greater_A = 'WRITE_CORRECT_VALUE_HERE') and
-                (s_B_equals_A  = 'WRITE_CORRECT_VALUE_HERE') and
-                (s_B_less_A    = 'WRITE_CORRECT_VALUE_HERE'))
+        assert ((s_B_greater_A = '1') and
+                (s_B_equals_A  = '0') and
+                (s_B_less_A    = '0'))
         -- If false, then report an error
-        report "Input combination COMPLETE_THIS_TEXT FAILED" severity error;
+        report "Input combination b=0011 a=0000" severity error;
+        
+                -- Second test case
+        s_b <= "0100"; --5
+        s_a <= "0011"; --3
+        wait for 100 ns;
+        -- Expected output
+        assert ((s_B_greater_A = '1') and
+                (s_B_equals_A  = '0') and
+                (s_B_less_A    = '0'))
+        -- If false, then report an error
+        report "Input combination b=0100 a=0011" severity error;
+        
+        
+                -- Third test case
+        s_b <= "0100"; -- 4
+        s_a <= "0110"; -- 6
+        wait for 100 ns;
+        -- Expected output
+        assert ((s_B_greater_A = '0') and
+                (s_B_equals_A  = '0') and
+                (s_B_less_A    = '1'))
+        -- If false, then report an error
+        report "Input combination b=0100 a=0110" severity error;
+        
+        
+                -- Fourth failed test case
+        s_b <= "0011"; -- 3 
+        s_a <= "0111"; -- 7
+        wait for 100 ns;
+        -- Expected output
+        assert ((s_B_greater_A = '1') and
+                (s_B_equals_A  = '0') and
+                (s_B_less_A    = '1'))
+        -- If false, then report an error
+        report "Input combination b=0011 a=0111" severity error;
+        
+        
+        
 
         -- Report a note at the end of stimulus process
-        report "Stimulus process finished";
+        report "Stimulus process finished" severity note;
         wait;
     end process p_stimulus;
+        
+        
+        
+        
+end architecture testbench;
 ```
 
 2. Link to your public EDA Playground example:
