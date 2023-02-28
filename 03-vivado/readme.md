@@ -18,7 +18,6 @@ with sel select
            c_i when "10",
            d_i when others; -- All other combinations
 
-end architecture behavioral;
 
 
 end architecture Behavioral;
