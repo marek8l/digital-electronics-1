@@ -45,4 +45,4 @@ end architecture behavioral;
 
 3. Screenshot with simulated time waveforms for LED(7:4). Always display all inputs and outputs (display the inputs at the top of the image, the outputs below them) at the appropriate time scale!
 
-   ![[your figure](https://github.com/marek8l/digital-electronics-1/blob/main/04-segment/prubeh.PNG)
+   ![your figure](https://github.com/marek8l/digital-electronics-1/blob/main/04-segment/prubeh.PNG)
